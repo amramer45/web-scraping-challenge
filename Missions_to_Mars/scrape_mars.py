@@ -69,10 +69,10 @@ def scrape():
         mars_facts_df.columns=['Characteristics', 'Mars']
         mars_facts_df.set_index('Characteristics', inplace=True)
 
-        mars_table_html=mars_facts_df.to_html(index=True, header=True, border=0, justify="left")
+        mars_table_html=mars_facts_df.to_html(index=True, header=True, justify="left")
         mars_table_html = mars_table_html.replace("\n","")
 
-        mars_dict["mars_facts"]=mars_facts_html
+        mars_dict["mars_table_html"]=mars_table_html
         print("mars facts success")
     except:
        mars_dict["mars_facts"]='1mars_facts'
