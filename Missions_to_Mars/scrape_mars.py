@@ -127,8 +127,7 @@ def scrape():
         print('hemisphere failure')
 
     browser.quit()
+    print('Quitting Browser')
+
+    print('Scrapping Complete')
     return mars_dict
-
-
-
-
