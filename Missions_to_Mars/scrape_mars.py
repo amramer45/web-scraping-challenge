@@ -121,7 +121,7 @@ def scrape():
                 break
 
         mars_dict["hem_list"]=hem_list
-        print(mars hemisphere success)
+        print('mars hemisphere success')
     except:
         mars_dict["hem_list"]='hemisphere_info'
         print('hemisphere failure')
