@@ -13,7 +13,7 @@ def init_browser():
     return Browser('chrome', **executable_path, headless=False)
 
 def scrape():
-
+    browser=init_browser()
     mars_dict={}
 
     ####### Mars News #########
@@ -61,7 +61,6 @@ def scrape():
 
 
     ####### Mars Facts #########
-
     try:
         #Scrape Mars facts
         facts_url='https://space-facts.com/mars/'
@@ -71,8 +70,9 @@ def scrape():
         mars_facts_df.set_index('Characteristics', inplace=True)
 
         mars_table_html=mars_facts_df.to_html(index=True, header=True, border=0, justify="left")
+        mars_table_html = mars_table_html.replace("\n","")
 
-        mars_dict["mars_facts"]=mars_facts_df
+        mars_dict["mars_facts"]=mars_facts_html
         print("mars facts success")
     except:
        mars_dict["mars_facts"]='1mars_facts'
@@ -112,7 +112,7 @@ def scrape():
                 'img_url':img_url
             })
 
-            count=count+1
+            count += 1
             
             if len(hemisphere_locate)>count:
                 browser.back()
@@ -122,6 +122,7 @@ def scrape():
 
         mars_dict["hem_list"]=hem_list
         print('mars hemisphere success')
+    
     except:
         mars_dict["hem_list"]='hemisphere_info'
         print('hemisphere failure')
