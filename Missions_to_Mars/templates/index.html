@@ -21,38 +21,58 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h3 class="heading">{{mars_data.news_title}}</h3>
-        <h4>{{mars_data.news_p}}</h4>
+        <h2>Latest Mars News</h2>
+        <h4 class="heading">{{mars_data.news_title}}</h4>
+        <h5>{{mars_data.news_p}}</h5>
       </div>
     </div>
   </div>
-
+</br>
    <!-- Mars Facts and Featured Image -->
-   <div class="container">
-    <div class="row">
-      <div class="col-md-8">
-        <h4 class='text-left'>Mars Facts</h4>
-        <p>{{mars_data.mars_table_html | safe}}</p>
-      </div>
-      <div class="col-md-4">
-        <h4 class='text-center'>Featured Mars Image</h4>
-        <img src="{{mars_data.featured_image_url}}" alt="featured_mars_img" style="max-width: 100%; height: 400px;">
+   <hr>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 border">
+          <h2 class='text-left'>Featured Mars Image</h2>
+          </br>
+          <img src="{{mars_data.featured_image_url}}" alt="featured_mars_img" style="max-width: 100%; height: 400px;">
+        </div>
+      </br>
+        <div class="col-md-4">
+          <h3 class='text-left'>Mars Facts</h3>
+          <p>{{mars_data.mars_table_html | safe}}</p>
       </div>
     </div>
-  </div>
+   <hr>
 
       <!-- Mars Hemispheres -->
       <div class="container">
         <div class="row">
-        <h3 class="text-center">Mars Hemisphere</h3>
-        {% for dictionary in mars_data.hem_list %}
-          <div class="col-md-6">
-            <img src="{{dictionary.img_url}}" alt="featured_mars_hemisphere" style="max-width: 100%; height: 400px">
-            <h4>{{dictionary.title}}</h4>
+          <div class="col-md-8">
+            <h2 class="text-center">Mars Hemisphere</h2>
+          </div>
         </div>
+        </br>
+        <div class="row">
+          {% for dictionary in mars_data.hem_list %}
+            <div class="col-md-6 border">
+            </br>
+              <div>
+                <img src="{{dictionary.img_url}}" alt="featured_mars_hemisphere" style="max-width: 100%; height: 400px">
+              </div>
+              <div>
+                <h4>{{dictionary.title}}</h4>
+              </div>
+            </div>
           {% endfor %}
         </div>
       </div>
+
+  <hr>
+  <footer class="footer">
+    <span class="bottom">All About Mars</span>
+    <div class="footer">&copy; Copyright Anne Ramer 2021</div>
+  </footer>
 
 </body>
 
